@@ -2,25 +2,31 @@ import React from "react";
 import { StyleSheet, TextInput, View } from "react-native";
 import EvilIcons from "react-native-vector-icons/EvilIcons";
 import Octicons from "react-native-vector-icons/Octicons";
+import { Mode } from "./Header";
 
-const SearchBar = () => {
+const SearchBar = ({ dark }: Mode) => {
   return (
     <View style={styles.mainContainer}>
-      <View style={styles.container}>
+      <View style={[styles.container, dark && styles.containerDark]}>
         <EvilIcons
           name="search"
-          color="#cbcaca"
+          color={dark ? "#E1D4C2" : "#6E473B"}
           size={20}
-          style={styles.icon}
+          style={[styles.icon, dark && styles.iconDark]}
         />
         <TextInput
           placeholder="Search..."
-          style={styles.input}
-          placeholderTextColor={"#cdcbcb"}
+          style={[styles.input, dark && styles.inputDark]}
+          placeholderTextColor={dark ? "#BEB5A9" : "#A78D78"}
         />
       </View>
-      <View style={styles.iconContainer}>
-        <Octicons name="filter" color="#757575" size={16} style={styles.icon} />
+      <View style={[styles.iconContainer, dark && styles.iconContainerDark]}>
+        <Octicons
+          name="filter"
+          color={dark ? "#E1D4C2" : "#6E473B"}
+          size={16}
+          style={[styles.icon, dark && styles.iconDark]}
+        />
       </View>
     </View>
   );
@@ -41,16 +47,26 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 10,
     marginTop: 10,
-    borderColor: "#d3d3d3",
+    borderColor: "#BEB5A9",
     borderRadius: 8,
     flexDirection: "row",
     alignItems: "center",
     padding: 6,
+    backgroundColor: "#F5F1ED",
+  },
+
+  containerDark: {
+    borderColor: "#6E473B",
+    backgroundColor: "#291C0E",
   },
 
   input: {
     padding: 5,
-    color: "#454444",
+    color: "#291C0E",
+  },
+
+  inputDark: {
+    color: "#E1D4C2",
   },
 
   icon: {
@@ -58,11 +74,21 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 
+  iconDark: {
+    color: "#E1D4C2",
+  },
+
   iconContainer: {
     borderWidth: 1,
     padding: 10,
     borderRadius: 8,
-    borderColor: "#cdcdcd",
+    borderColor: "#BEB5A9",
     marginTop: 10,
+    backgroundColor: "#F5F1ED",
+  },
+
+  iconContainerDark: {
+    borderColor: "#6E473B",
+    backgroundColor: "#291C0E",
   },
 });
