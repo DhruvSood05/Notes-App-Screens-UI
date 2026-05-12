@@ -22,23 +22,23 @@ A polished React Native notes app UI built with Expo. The app focuses on a premi
 
 ### Home Screen - Light Mode
 
-![Home screen light mode](assets/images/WhatsApp%20Image%202026-05-12%20at%2010.33.54%20PM.jpeg)
+<img src="assets/images/WhatsApp%20Image%202026-05-12%20at%2010.33.54%20PM.jpeg" width="300" alt="Home screen light mode"/>
 
 ### Task Page - Filled Note
 
-![Home screen dark mode](<assets/images/WhatsApp%20Image%202026-05-12%20at%2010.33.54%20PM%20(2).jpeg>)
+<img src="assets/images/WhatsApp%20Image%202026-05-12%20at%2010.33.54%20PM%20(2).jpeg" width="300" alt="Task page filled note"/>
 
 ### Home Screen - Dark Mode
 
-![Search in action](<assets/images/WhatsApp%20Image%202026-05-12%20at%2010.33.54%20PM%20(1).jpeg>)
+<img src="assets/images/WhatsApp%20Image%202026-05-12%20at%2010.33.54%20PM%20(1).jpeg" width="300" alt="Home screen dark mode"/>
 
 ### Search In Action
 
-![Task page filled note](assets/images/WhatsApp%20Image%202026-05-12%20at%2010.33.55%20PM.jpeg)
+<img src="assets/images/WhatsApp%20Image%202026-05-12%20at%2010.33.55%20PM.jpeg" width="300" alt="Search in action"/>
 
 ### Task Page - Empty Note
 
-![Task page empty note](<assets/images/WhatsApp%20Image%202026-05-12%20at%2010.33.55%20PM%20(1).jpeg>)
+<img src="assets/images/WhatsApp%20Image%202026-05-12%20at%2010.33.55%20PM%20(1).jpeg" width="300" alt="Task page empty note"/>
 
 ## Getting Started
 
