@@ -12,6 +12,8 @@ export interface Mode {
   setDark?: (v: boolean) => void;
   showTaskPage?: boolean;
   setShowTaskPage?: (v: boolean) => void;
+  searchTerm?: string;
+  setSearchTerm?: (v: string) => void;
 }
 
 export interface DataItem {
@@ -60,9 +62,22 @@ const createEmptyTask = (): DataItem => ({
   }),
 });
 
-const header = ({ dark, setDark, showTaskPage, setShowTaskPage }: Mode) => {
+const header = ({
+  dark,
+  setDark,
+  showTaskPage,
+  setShowTaskPage,
+  searchTerm = "",
+  setSearchTerm,
+}: Mode) => {
   const [notesData, setNotesData] = useState<DataItem[]>(DATA);
   const [selectedTask, setSelectedTask] = useState<DataItem | null>(null);
+  const normalizedSearch = searchTerm.trim().toLowerCase();
+  const filteredNotes = normalizedSearch
+    ? notesData.filter((item) =>
+        item.title.toLowerCase().includes(normalizedSearch),
+      )
+    : notesData;
 
   const handleOpenNewTask = () => {
     setSelectedTask(createEmptyTask());
@@ -122,10 +137,15 @@ const header = ({ dark, setDark, showTaskPage, setShowTaskPage }: Mode) => {
   return (
     <View style={[styles.header, dark && styles.headerDark]}>
       <Heading dark={dark} setDark={setDark} />
-      <SearchBar dark={dark} />
+      <SearchBar
+        dark={dark}
+        value={searchTerm}
+        onChangeText={(text) => setSearchTerm?.(text)}
+      />
       <FlatList
         style={styles.list}
-        data={notesData}
+        contentContainerStyle={styles.listContent}
+        data={filteredNotes}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <PressableTask
@@ -154,7 +174,7 @@ export default header;
 const styles = StyleSheet.create({
   header: {
     flex: 1,
-    // width: "100%",
+    width: "100%",
   },
 
   headerDark: {
@@ -163,7 +183,12 @@ const styles = StyleSheet.create({
 
   list: {
     marginTop: 10,
-
     borderRadius: 10,
+    flex: 1,
+    width: "100%",
+  },
+
+  listContent: {
+    flexGrow: 1,
   },
 });

@@ -6,6 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default function Index() {
   const [isDark, setIsDark] = useState(false);
   const [showTaskPage, setShowTaskPage] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   return (
     <SafeAreaView style={[styles.container, isDark && styles.containerDark]}>
       <StatusBar barStyle={isDark ? "light-content" : "dark-content"} />
@@ -14,6 +15,8 @@ export default function Index() {
         setDark={setIsDark}
         showTaskPage={showTaskPage}
         setShowTaskPage={setShowTaskPage}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
       />
     </SafeAreaView>
   );

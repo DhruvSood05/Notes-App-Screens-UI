@@ -43,7 +43,7 @@ const TaskPage = ({
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <KeyboardAvoidingView
-        style={{ flex: 1 }}
+        style={{ flex: 1, width: "100%" }}
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
         <View style={[styles.container, dark && styles.containerDark]}>
@@ -87,8 +87,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     // width: "100%",
+
     backgroundColor: "#DEDCDC",
-    padding: 10,
   },
   containerDark: {
     backgroundColor: "#191D23",
@@ -103,12 +103,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    marginBottom: 20,
   },
 
   button: {
     borderWidth: 1,
-    padding: 7,
-    borderRadius: 20,
+    padding: 10,
+    borderRadius: 16,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -123,10 +124,10 @@ const styles = StyleSheet.create({
   },
 
   save: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: "600",
-    paddingHorizontal: 15,
-    paddingVertical: 2,
+    paddingHorizontal: 16,
+    paddingVertical: 3,
   },
 
   saveDark: {

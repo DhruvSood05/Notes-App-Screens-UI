@@ -37,9 +37,10 @@ const styles = StyleSheet.create({
 
   container: {
     borderWidth: 1,
-    marginTop: 36,
+    marginTop: 30,
     borderRadius: 10,
     // width: "100%",
+    // alignSelf: "stretch",
   },
 
   containerDark: {

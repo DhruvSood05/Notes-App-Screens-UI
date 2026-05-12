@@ -36,9 +36,11 @@ const styles = StyleSheet.create({
   container: {
     borderWidth: 1,
     marginTop: 16,
-    borderRadius: 10,
+    borderRadius: 14,
     flex: 1,
     width: "100%",
+    // alignSelf: "stretch",
+    // minHeight: 180,
   },
 
   containerDark: {
@@ -51,8 +53,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     flex: 1,
     // borderWidth: 1,
-    width: "auto",
-    height: "100%",
+    width: "100%",
+    textAlignVertical: "top",
   },
 
   descriptionDark: {

@@ -2,9 +2,13 @@ import React from "react";
 import { StyleSheet, TextInput, View } from "react-native";
 import EvilIcons from "react-native-vector-icons/EvilIcons";
 import Octicons from "react-native-vector-icons/Octicons";
-import { Mode } from "./Header";
+interface SearchBarProps {
+  dark: boolean;
+  value: string;
+  onChangeText: (text: string) => void;
+}
 
-const SearchBar = ({ dark }: Mode) => {
+const SearchBar = ({ dark, value, onChangeText }: SearchBarProps) => {
   return (
     <View style={styles.mainContainer}>
       <View style={[styles.container, dark && styles.containerDark]}>
@@ -18,6 +22,8 @@ const SearchBar = ({ dark }: Mode) => {
           placeholder="Search..."
           style={[styles.input, dark && styles.inputDark]}
           placeholderTextColor={dark ? "#C5BAC4" : "#7E919F"}
+          value={value}
+          onChangeText={onChangeText}
         />
       </View>
       <View style={[styles.iconContainer, dark && styles.iconContainerDark]}>
