@@ -22,6 +22,14 @@ A polished React Native notes app UI built with Expo. The app focuses on a premi
 
 ### Home Screen - Light Mode
 
+## Demo Video
+
+<video controls src="assets/Video/video.mp4" title="Title" width="300"></video>
+
+## Screenshots
+
+### Home Screen - Light Mode
+
 <img src="assets/images/WhatsApp%20Image%202026-05-12%20at%2010.33.54%20PM.jpeg" width="300" alt="Home screen light mode"/>
 
 ### Task Page - Filled Note
