@@ -1,14 +1,22 @@
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import AntDesign from "react-native-vector-icons/AntDesign";
 
 interface data {
   dark?: boolean;
   title: string;
+  description: string;
   date: string;
   onPress?: () => void;
 }
 
-const PressableTask = ({ dark = false, title, date, onPress }: data) => {
+const PressableTask = ({
+  dark = false,
+  title,
+  description,
+  date,
+  onPress,
+}: data) => {
   return (
     <Pressable
       style={[styles.container, dark && styles.containerDark]}
@@ -20,7 +28,13 @@ const PressableTask = ({ dark = false, title, date, onPress }: data) => {
         </Text>
       </View>
       <View>
+        <Text style={[styles.description, dark && styles.headingDark]}>
+          {description}
+        </Text>
+      </View>
+      <View style={styles.footer}>
         <Text style={[styles.date, dark && styles.dateDark]}>{date}</Text>
+        <AntDesign name="delete" color="#8d0000" size={20} />
       </View>
     </Pressable>
   );
@@ -31,6 +45,7 @@ export default PressableTask;
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+    paddingHorizontal: 20,
     borderWidth: 1,
     marginTop: 15,
     borderRadius: 10,
@@ -50,7 +65,8 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
   },
   heading: {
-    fontSize: 18,
+    marginTop: 5,
+    fontSize: 24,
     fontWeight: "600",
     color: "#191D23",
   },
@@ -66,5 +82,16 @@ const styles = StyleSheet.create({
   },
   dateDark: {
     color: "#7E919F",
+  },
+
+  description: {
+    fontSize: 15,
+    marginTop: 10,
+    marginBottom: 20,
+  },
+  footer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 });

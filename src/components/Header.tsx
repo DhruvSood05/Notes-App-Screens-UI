@@ -13,9 +13,10 @@ export interface Mode {
   setShowTaskPage?: (v: boolean) => void;
 }
 
-interface DataItem {
+export interface DataItem {
   id: string;
   title: string;
+  description: string;
   date: string;
 }
 
@@ -23,85 +24,42 @@ export const DATA: DataItem[] = [
   {
     id: "1",
     title: "Frontend Development",
+    description: "Build responsive UI components using React and TailwindCSS.",
     date: "30 July 2026",
   },
   {
     id: "2",
     title: "UI/UX Design Meeting",
+    description: "Discuss app wireframes, user flow, and modern design ideas.",
     date: "30 July 2026",
   },
   {
     id: "3",
     title: "React Native Practice",
+    description:
+      "Work on navigation, FlatList, and reusable mobile components.",
     date: "30 July 2026",
   },
   {
     id: "4",
     title: "Backend API Testing",
-    date: "30 July 2026",
-  },
-  {
-    id: "5",
-    title: "Portfolio Update",
-    date: "30 July 2026",
-  },
-  {
-    id: "6",
-    title: "TypeScript Learning",
-    date: "30 July 2026",
-  },
-  {
-    id: "7",
-    title: "Portfolio Website Update",
-    date: "30 July 2026",
-  },
-  {
-    id: "8",
-    title: "Figma Wireframe Design",
-    date: "30 July 2026",
-  },
-  {
-    id: "9",
-    title: "Authentication System Setup",
-    date: "30 July 2026",
-  },
-  {
-    id: "10",
-    title: "GitHub Project Cleanup",
-    date: "30 July 2026",
-  },
-  {
-    id: "11",
-    title: "Hackathon Preparation",
-    date: "30 July 2026",
-  },
-  {
-    id: "12",
-    title: "Node.js Server Testing",
-    date: "30 July 2026",
-  },
-  {
-    id: "13",
-    title: "Mobile App UI Polish",
-    date: "30 July 2026",
-  },
-  {
-    id: "14",
-    title: "TailwindCSS Practice",
-    date: "30 July 2026",
-  },
-  {
-    id: "15",
-    title: "DSA Problem Solving",
+    description: "Test REST APIs and validate authentication endpoints.",
     date: "30 July 2026",
   },
 ];
 
 const header = ({ dark, setDark, showTaskPage, setShowTaskPage }: Mode) => {
   const [notesData, setNotesData] = useState([]);
+  const [selectedTask, setSelectedTask] = useState<DataItem | null>(null);
 
-  if (showTaskPage) {
-    return <TaskPage />;
+  if (showTaskPage && selectedTask) {
+    return (
+      <TaskPage
+        onGoBack={() => setShowTaskPage?.(false)}
+        task={selectedTask}
+        dark={dark}
+      />
+    );
   }
 
   return (
@@ -116,8 +74,12 @@ const header = ({ dark, setDark, showTaskPage, setShowTaskPage }: Mode) => {
           <PressableTask
             dark={dark}
             title={item.title}
+            description={item.description}
             date={item.date}
-            onPress={() => setShowTaskPage?.(true)}
+            onPress={() => {
+              setSelectedTask(item);
+              setShowTaskPage?.(true);
+            }}
           />
         )}
         showsVerticalScrollIndicator={false}
