@@ -1,6 +1,6 @@
 
 
-https://github.com/user-attachments/assets/6ad67f56-36f6-4661-a693-27e7235fb1ed
+
 
 # Notes App Screens UI
 
@@ -28,7 +28,7 @@ A polished React Native notes app UI built with Expo. The app focuses on a premi
 
 ## Demo Video
 
-<video controls src="assets/Video/video.mp4" title="Title" width="300"></video>
+
 https://github.com/user-attachments/assets/3bfb40c3-789c-4d81-b309-821aecc4a796
 
 
