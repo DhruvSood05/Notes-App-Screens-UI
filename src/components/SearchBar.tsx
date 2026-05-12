@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
   input: {
     padding: 5,
     color: "#191D23",
+    width: "90%",
   },
 
   inputDark: {

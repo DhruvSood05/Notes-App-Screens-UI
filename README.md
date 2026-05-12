@@ -1,22 +1,44 @@
 # Notes App Screens UI
 
-A clean notes app UI built with React Native, Expo, and Expo Router. The app focuses on a simple task list experience with a polished detail screen, dark mode support, and an editable note layout.
+A polished React Native notes app UI built with Expo. The app focuses on a premium mobile experience with dark mode, search, editable notes, and a clean task page flow.
 
-## Features
+## Highlights
 
-- Browse a list of notes in a responsive FlatList layout
-- Open a note into a dedicated task detail screen
-- Edit note title and description fields
-- Toggle dark mode across the main screens
-- Use a search bar and reusable UI components for a consistent layout
+- Browse notes in a responsive card list layout
+- Search notes live by title, letter by letter
+- Open notes in a dedicated task page
+- Create, edit, and delete notes with local state
+- Switch between dark and light themes
+- Keep the UI consistent across list, search, and task screens
 
 ## Tech Stack
 
 - React Native
 - Expo
-- Expo Router
 - TypeScript
 - React Native Vector Icons
+
+## Screenshots
+
+### Home Screen - Light Mode
+
+![Home screen light mode](assets/images/WhatsApp%20Image%202026-05-12%20at%2010.33.54%20PM.jpeg)
+
+### Task Page - Filled Note
+
+![Home screen dark mode](<assets/images/WhatsApp%20Image%202026-05-12%20at%2010.33.54%20PM%20(2).jpeg>)
+
+### Home Screen - Dark Mode
+
+![Search in action](<assets/images/WhatsApp%20Image%202026-05-12%20at%2010.33.54%20PM%20(1).jpeg>)
+
+### Search In Action
+
+![Task page filled note](assets/images/WhatsApp%20Image%202026-05-12%20at%2010.33.55%20PM.jpeg)
+
+### Task Page - Empty Note
+
+![Task page empty note](<assets/images/WhatsApp%20Image%202026-05-12%20at%2010.33.55%20PM%20(1).jpeg>)
 
 ## Getting Started
 
@@ -33,18 +55,18 @@ A clean notes app UI built with React Native, Expo, and Expo Router. The app foc
    ```
 
 3. Open it in your preferred target:
-
-- Expo Go
-- Android emulator
-- iOS simulator
-- Web
+   - Expo Go
+   - Android emulator
+   - iOS simulator
+   - Web
 
 ## Project Structure
 
 - `src/app` contains the routed app screens
 - `src/components` contains reusable UI pieces
 - `src/components/TaskPage` contains the task detail screen and its inputs
+- `assets/images` contains the screenshots used in this README
 
 ## Notes
 
-This project is focused on UI and interaction design rather than persistence, so the current implementation uses local component state and mock note data.
+This project is focused on UI and interaction design rather than persistence. Notes are currently stored in local component state with mock data for a smooth demo experience.
