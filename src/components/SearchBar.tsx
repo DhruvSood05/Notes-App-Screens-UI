@@ -10,20 +10,20 @@ const SearchBar = ({ dark }: Mode) => {
       <View style={[styles.container, dark && styles.containerDark]}>
         <EvilIcons
           name="search"
-          color={dark ? "#E1D4C2" : "#6E473B"}
+          color={dark ? "#DEDCDC" : "#191D23"}
           size={20}
           style={[styles.icon, dark && styles.iconDark]}
         />
         <TextInput
           placeholder="Search..."
           style={[styles.input, dark && styles.inputDark]}
-          placeholderTextColor={dark ? "#BEB5A9" : "#A78D78"}
+          placeholderTextColor={dark ? "#C5BAC4" : "#7E919F"}
         />
       </View>
       <View style={[styles.iconContainer, dark && styles.iconContainerDark]}>
         <Octicons
           name="filter"
-          color={dark ? "#E1D4C2" : "#6E473B"}
+          color={dark ? "#DEDCDC" : "#191D23"}
           size={16}
           style={[styles.icon, dark && styles.iconDark]}
         />
@@ -47,26 +47,34 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 10,
     marginTop: 10,
-    borderColor: "#BEB5A9",
+    borderColor: "#979DAB",
     borderRadius: 8,
     flexDirection: "row",
     alignItems: "center",
     padding: 6,
-    backgroundColor: "#F5F1ED",
+    backgroundColor: "#DEDCDC",
+    shadowColor: "#000000",
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.12,
+    shadowRadius: 6,
   },
 
   containerDark: {
-    borderColor: "#6E473B",
-    backgroundColor: "#291C0E",
+    borderColor: "#57707A",
+    backgroundColor: "#191D23",
+    shadowColor: "#000000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.35,
+    shadowRadius: 7,
   },
 
   input: {
     padding: 5,
-    color: "#291C0E",
+    color: "#191D23",
   },
 
   inputDark: {
-    color: "#E1D4C2",
+    color: "#DEDCDC",
   },
 
   icon: {
@@ -82,13 +90,21 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     borderRadius: 8,
-    borderColor: "#BEB5A9",
+    borderColor: "#979DAB",
     marginTop: 10,
-    backgroundColor: "#F5F1ED",
+    backgroundColor: "#DEDCDC",
+    shadowColor: "#000000",
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.12,
+    shadowRadius: 6,
   },
 
   iconContainerDark: {
-    borderColor: "#6E473B",
-    backgroundColor: "#291C0E",
+    borderColor: "#57707A",
+    backgroundColor: "#191D23",
+    shadowColor: "#000000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.35,
+    shadowRadius: 7,
   },
 });

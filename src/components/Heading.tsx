@@ -16,7 +16,7 @@ const Heading = ({ dark, setDark }: Mode) => {
         style={[styles.icon, dark && styles.iconDark]}
         onPress={toggle}
       >
-        {dark ? <Sun color="#ffffff" /> : <Moon color="#291C0E" />}
+        {dark ? <Sun color="#DEDCDC" /> : <Moon color="#191D23" />}
       </Pressable>
     </View>
   );
@@ -34,21 +34,29 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 36,
     fontWeight: "600",
-    color: "#291C0E",
+    color: "#191D23",
   },
   titleDark: {
-    color: "#E1D4C2",
+    color: "#DEDCDC",
   },
   icon: {
     borderWidth: 1,
     padding: 10,
     borderRadius: 10,
-    borderColor: "#BEB5A9",
-    backgroundColor: "#F5F1ED",
+    borderColor: "#979DAB",
+    backgroundColor: "#DEDCDC",
+    shadowColor: "#000000",
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.12,
+    shadowRadius: 6,
   },
   iconDark: {
-    borderColor: "#6E473B",
-    backgroundColor: "#3D2F24",
-    color: "#ffffff",
+    borderColor: "#57707A",
+    backgroundColor: "#191D23",
+    color: "#DEDCDC",
+    shadowColor: "#000000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.35,
+    shadowRadius: 7,
   },
 });

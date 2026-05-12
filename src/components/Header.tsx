@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 import Heading from "./Heading";
 
@@ -98,6 +98,8 @@ export const DATA: DataItem[] = [
 ];
 
 const header = ({ dark, setDark, showTaskPage, setShowTaskPage }: Mode) => {
+  const [notesData, setNotesData] = useState([]);
+
   if (showTaskPage) {
     return <TaskPage />;
   }
@@ -133,7 +135,7 @@ const styles = StyleSheet.create({
   },
 
   headerDark: {
-    backgroundColor: "#291C0E",
+    backgroundColor: "#191D23",
   },
 
   list: {

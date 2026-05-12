@@ -34,28 +34,37 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginTop: 15,
     borderRadius: 10,
-    borderColor: "#c9c8c8",
+    borderColor: "#C5BAC4",
+    backgroundColor: "#DEDCDC",
+    shadowColor: "#000000",
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.12,
+    shadowRadius: 8,
   },
   containerDark: {
-    borderColor: "#3D2F24",
-    backgroundColor: "#291C0E",
+    borderColor: "#57707A",
+    backgroundColor: "#191D23",
+    shadowColor: "#000000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.35,
+    shadowRadius: 10,
   },
   heading: {
     fontSize: 18,
     fontWeight: "600",
-    color: "#291C0E",
+    color: "#191D23",
   },
 
   headingDark: {
-    color: "#E1D4C2",
+    color: "#DEDCDC",
   },
 
   date: {
     fontSize: 14,
-    color: "#6E473B",
+    color: "#57707A",
     marginTop: 8,
   },
   dateDark: {
-    color: "#A78D78",
+    color: "#7E919F",
   },
 });

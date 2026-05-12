@@ -25,10 +25,11 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     justifyContent: "flex-start",
     padding: 20,
-    marginTop: 48,
-    backgroundColor: "#FFFBF5",
+    // marginTop: 48,
+    paddingTop: 40,
+    backgroundColor: "#DEDCDC",
   },
   containerDark: {
-    backgroundColor: "#291C0E",
+    backgroundColor: "#191D23",
   },
 });
