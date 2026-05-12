@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 import Heading from "./Heading";
 
+import AddButton from "./AddButton";
 import PressableTask from "./PressableTask";
 import SearchBar from "./SearchBar";
 import TaskPage from "./TaskPage/TaskPage";
@@ -48,16 +49,72 @@ export const DATA: DataItem[] = [
   },
 ];
 
+const createEmptyTask = (): DataItem => ({
+  id: Date.now().toString(),
+  title: "",
+  description: "",
+  date: new Date().toLocaleDateString("en-US", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  }),
+});
+
 const header = ({ dark, setDark, showTaskPage, setShowTaskPage }: Mode) => {
-  const [notesData, setNotesData] = useState([]);
+  const [notesData, setNotesData] = useState<DataItem[]>(DATA);
   const [selectedTask, setSelectedTask] = useState<DataItem | null>(null);
+
+  const handleOpenNewTask = () => {
+    setSelectedTask(createEmptyTask());
+    setShowTaskPage?.(true);
+  };
+
+  const handleSaveTask = (task: DataItem) => {
+    setNotesData((currentNotes) => {
+      const existingIndex = currentNotes.findIndex(
+        (item) => item.id === task.id,
+      );
+
+      if (existingIndex === -1) {
+        return [task, ...currentNotes];
+      }
+
+      const updatedNotes = [...currentNotes];
+      updatedNotes[existingIndex] = task;
+      return updatedNotes;
+    });
+
+    setSelectedTask(task);
+    setShowTaskPage?.(false);
+  };
+
+  const handleDeleteTask = (id: string) => {
+    setNotesData((currentNotes) =>
+      currentNotes.filter((item) => item.id !== id),
+    );
+
+    setSelectedTask((currentTask) =>
+      currentTask && currentTask.id === id ? null : currentTask,
+    );
+  };
 
   if (showTaskPage && selectedTask) {
     return (
       <TaskPage
         onGoBack={() => setShowTaskPage?.(false)}
+        onSave={handleSaveTask}
         task={selectedTask}
         dark={dark}
+        onChangeTitle={(title) =>
+          setSelectedTask((currentTask) =>
+            currentTask ? { ...currentTask, title } : currentTask,
+          )
+        }
+        onChangeDescription={(description) =>
+          setSelectedTask((currentTask) =>
+            currentTask ? { ...currentTask, description } : currentTask,
+          )
+        }
       />
     );
   }
@@ -68,7 +125,7 @@ const header = ({ dark, setDark, showTaskPage, setShowTaskPage }: Mode) => {
       <SearchBar dark={dark} />
       <FlatList
         style={styles.list}
-        data={DATA}
+        data={notesData}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <PressableTask
@@ -80,10 +137,14 @@ const header = ({ dark, setDark, showTaskPage, setShowTaskPage }: Mode) => {
               setSelectedTask(item);
               setShowTaskPage?.(true);
             }}
+            onDelete={() => handleDeleteTask(item.id)}
           />
         )}
         showsVerticalScrollIndicator={false}
       />
+      <View style={{ alignItems: "center" }}>
+        <AddButton onPress={handleOpenNewTask} />
+      </View>
     </View>
   );
 };
@@ -93,7 +154,7 @@ export default header;
 const styles = StyleSheet.create({
   header: {
     flex: 1,
-    width: "100%",
+    // width: "100%",
   },
 
   headerDark: {

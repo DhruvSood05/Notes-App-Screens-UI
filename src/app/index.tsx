@@ -22,12 +22,13 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "flex-start",
+    alignItems: "center",
     justifyContent: "flex-start",
     padding: 20,
     // marginTop: 48,
     paddingTop: 40,
     backgroundColor: "#DEDCDC",
+    width: "100%",
   },
   containerDark: {
     backgroundColor: "#191D23",

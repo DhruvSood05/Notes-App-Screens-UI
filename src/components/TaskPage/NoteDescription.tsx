@@ -8,11 +8,12 @@ import {
 } from "react-native";
 
 interface Value {
-  intialValue: string;
+  value: string;
+  onChangeText: (text: string) => void;
   dark?: boolean;
 }
 
-const NoteDescription = ({ intialValue, dark = false }: Value) => {
+const NoteDescription = ({ value, onChangeText, dark = false }: Value) => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View style={[styles.container, dark && styles.containerDark]}>
@@ -21,9 +22,9 @@ const NoteDescription = ({ intialValue, dark = false }: Value) => {
           placeholder="Enter Notes..."
           placeholderTextColor={dark ? "#7E919F" : "#000"}
           multiline={true}
-        >
-          {intialValue}
-        </TextInput>
+          value={value}
+          onChangeText={onChangeText}
+        />
       </View>
     </TouchableWithoutFeedback>
   );
@@ -37,6 +38,7 @@ const styles = StyleSheet.create({
     marginTop: 16,
     borderRadius: 10,
     flex: 1,
+    width: "100%",
   },
 
   containerDark: {
@@ -47,7 +49,7 @@ const styles = StyleSheet.create({
   description: {
     padding: 15,
     fontSize: 16,
-    // flex: 1,
+    flex: 1,
     // borderWidth: 1,
     width: "auto",
     height: "100%",

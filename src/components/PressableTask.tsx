@@ -8,6 +8,7 @@ interface data {
   description: string;
   date: string;
   onPress?: () => void;
+  onDelete?: () => void;
 }
 
 const PressableTask = ({
@@ -16,6 +17,7 @@ const PressableTask = ({
   description,
   date,
   onPress,
+  onDelete,
 }: data) => {
   return (
     <Pressable
@@ -32,10 +34,12 @@ const PressableTask = ({
           {description}
         </Text>
       </View>
-      <View style={styles.footer}>
+      <Pressable style={styles.footer}>
         <Text style={[styles.date, dark && styles.dateDark]}>{date}</Text>
-        <AntDesign name="delete" color="#8d0000" size={20} />
-      </View>
+        <Pressable onPress={onDelete} hitSlop={10}>
+          <AntDesign name="delete" color="#8d0000" size={20} />
+        </Pressable>
+      </Pressable>
     </Pressable>
   );
 };

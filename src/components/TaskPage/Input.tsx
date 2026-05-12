@@ -2,20 +2,21 @@ import React from "react";
 import { StyleSheet, TextInput, View } from "react-native";
 
 interface Value {
-  intialValue: string;
+  value: string;
+  onChangeText: (text: string) => void;
   dark?: boolean;
 }
 
-const Input = ({ intialValue, dark = false }: Value) => {
+const Input = ({ value, onChangeText, dark = false }: Value) => {
   return (
     <View style={[styles.container, dark && styles.containerDark]}>
       <TextInput
         style={[styles.input, dark && styles.inputDark]}
         placeholder="Title..."
         placeholderTextColor={dark ? "#7E919F" : "#2b2b2b"}
-      >
-        {intialValue}
-      </TextInput>
+        value={value}
+        onChangeText={onChangeText}
+      />
     </View>
   );
 };
@@ -38,6 +39,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginTop: 36,
     borderRadius: 10,
+    // width: "100%",
   },
 
   containerDark: {

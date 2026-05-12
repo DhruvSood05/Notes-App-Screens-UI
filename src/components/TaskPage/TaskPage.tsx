@@ -15,15 +15,31 @@ import NoteDescription from "./NoteDescription";
 
 interface TaskPageProp {
   onGoBack: () => void;
-  dark?: boolean;
-  task: {
+  onSave: (task: {
+    id: string;
     title: string;
     date: string;
-    description?: string;
+    description: string;
+  }) => void;
+  onChangeTitle: (title: string) => void;
+  onChangeDescription: (description: string) => void;
+  dark?: boolean;
+  task: {
+    id: string;
+    title: string;
+    date: string;
+    description: string;
   };
 }
 
-const TaskPage = ({ onGoBack, task, dark = false }: TaskPageProp) => {
+const TaskPage = ({
+  onGoBack,
+  onSave,
+  onChangeTitle,
+  onChangeDescription,
+  task,
+  dark = false,
+}: TaskPageProp) => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <KeyboardAvoidingView
@@ -48,12 +64,17 @@ const TaskPage = ({ onGoBack, task, dark = false }: TaskPageProp) => {
                 styles.saveButton,
                 dark && styles.buttonDark,
               ]}
+              onPress={() => onSave(task)}
             >
               <Text style={[styles.save, dark && styles.saveDark]}>Save</Text>
             </Pressable>
           </View>
-          <Input intialValue={task.title} dark={dark} />
-          <NoteDescription intialValue={task.description ?? ""} dark={dark} />
+          <Input value={task.title} onChangeText={onChangeTitle} dark={dark} />
+          <NoteDescription
+            value={task.description}
+            onChangeText={onChangeDescription}
+            dark={dark}
+          />
         </View>
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>
@@ -65,7 +86,7 @@ export default TaskPage;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: "100%",
+    // width: "100%",
     backgroundColor: "#DEDCDC",
     padding: 10,
   },
